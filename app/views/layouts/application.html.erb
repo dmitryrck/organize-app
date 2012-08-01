@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>OrganizeApp</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>App</title>
+    <%= stylesheet_link_tag 'application' %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/">App</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><%= link_to 'Home', root_path %></li>
+            </ul>
+            <ul class="nav pull-right">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <% flash.each do |type, value| %>
+        <div class="alert alert-<%= type.to_s %>">
+          <a class="close" data-dismiss="alert">&times;</a><%= value %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+    <%= javascript_include_tag 'application' %>
+  </body>
 </html>
