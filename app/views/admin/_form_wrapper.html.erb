@@ -1,0 +1,14 @@
+<%= simple_form_for @object, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="form-inputs">
+    <%= render 'form', :f => f %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <% if @object.new_record? %>
+      <%= link_to t('actions.back'), [controller_name], :class => :btn %>
+    <% else %>
+      <%= link_to t('actions.back'), @object, :class => :btn %>
+    <% end %>
+  </div>
+<% end %>

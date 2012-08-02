@@ -1,0 +1,17 @@
+<table class="table table-striped table-bordered">
+  <tr>
+    <th><%= t "simple_form.labels.transaction.name" %></th>
+    <th><%= t "simple_form.labels.transaction.value" %></th>
+    <th><%= t "simple_form.labels.transaction.purchased_at" %></th>
+    <th></th>
+  </tr>
+
+  <% @objects.each do |object| %>
+    <tr id="<%= dom_id object %>">
+      <td><%= object.title %></td>
+      <td><%= object.value %></td>
+      <td><%= object.purchased_at %></td>
+      <td><%= link_to t('actions.show'), object, :class => :btn %></td>
+    </tr>
+  <% end %>
+</table>

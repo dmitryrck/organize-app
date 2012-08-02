@@ -1,4 +1,7 @@
 OrganizeApp::Application.routes.draw do
+  resources :transactions
+  resources :items
+  root :to => 'transactions#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
