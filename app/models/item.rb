@@ -1,10 +1,10 @@
 class Item < ActiveRecord::Base
-  attr_accessible :product, :description, :unit, :brand, :transaction_id,
+  attr_accessible :product, :description, :unit, :brand, :purchase_id,
     :quantity, :price
 
-  belongs_to :transaction
+  belongs_to :purchase
 
-  validates :transaction_id, :quantity, :price, :presence => true
+  validates :purchase_id, :quantity, :price, :presence => true
 
   def total
     return unless quantity || price

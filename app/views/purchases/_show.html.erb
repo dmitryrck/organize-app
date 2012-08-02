@@ -1,19 +1,19 @@
-<%= show_for @object do |transaction| %>
+<%= show_for @object do |purchase| %>
   <section class="fluidGridSystem">
     <div class="row-fluid show-grid">
       <div class="span4">
-        <%= transaction.attribute :title %>
-        <%= transaction.attribute :value do %>
+        <%= purchase.attribute :title %>
+        <%= purchase.attribute :value do %>
           <%= number_to_currency @object.value  %>
         <% end %>
-        <%= transaction.attribute :purchased_at %>
-        <%= transaction.attribute :created_at %>
-        <%= transaction.attribute :updated_at %>
+        <%= purchase.attribute :purchased_at %>
+        <%= purchase.attribute :created_at %>
+        <%= purchase.attribute :updated_at %>
       </div>
 
       <div class="span8">
         <%= simple_form_for @object.items.build, :html => { :class => 'form-horizontal' } do |f| %>
-          <%= f.input :transaction_id, :as => :hidden %>
+          <%= f.input :purchase_id, :as => :hidden %>
           <%= f.input :product, :autofocus => true %>
           <%= f.input :description %>
           <%= f.input :brand %>
@@ -28,7 +28,7 @@
     </div>
   </section>
 
-  <%= transaction.attribute :items do %>
+  <%= purchase.attribute :items do %>
     <table class="table table-striped table-bordered">
       <tr>
         <th><%= t "simple_form.labels.item.product" %></th>

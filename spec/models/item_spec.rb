@@ -2,15 +2,15 @@ require 'spec_helper'
 
 describe Item do
   subject do
-    described_class.new :transaction_id => 1,
+    described_class.new :purchase_id => 1,
       :quantity => 2,
       :price => 6
   end
 
   it { should be_valid }
 
-  it 'should not be valid without transaction' do
-    subject.transaction_id = nil
+  it 'should not be valid without purchase' do
+    subject.purchase_id = nil
     subject.should_not be_valid
   end
 

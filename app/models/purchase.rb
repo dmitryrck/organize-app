@@ -1,4 +1,4 @@
-class Transaction < ActiveRecord::Base
+class Purchase < ActiveRecord::Base
   attr_accessible :title, :value, :purchased_at
 
   validates :title, :value, :purchased_at, :presence => true

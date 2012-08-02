@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Transaction do
+describe Purchase do
   subject do
-    described_class.new :title => 'transaction#1',
+    described_class.new :title => 'purchase#1',
       :value => 1,
       :purchased_at => Date.yesterday
   end

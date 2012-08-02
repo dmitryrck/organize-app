@@ -1,9 +1,11 @@
 require 'spec_helper'
 
 describe ItemsController do
-  it 'should add item to transaction' do
-    pending
-    Transaction.create :title => 'transaction#1', :value => 10
+  before do
+    Purchase.create! :title => 'purchase#1', :value => 10
+  end
+
+  it 'should add item to purchase' do
 
     visit '/'
 
