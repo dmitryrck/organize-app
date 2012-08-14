@@ -4,7 +4,6 @@ class Purchase < ActiveRecord::Base
   validates :title, :value, :purchased_at, :presence => true
   validate :non_zero_value
 
-  has_many :items, :dependent => :destroy
   has_many :taggables
   has_many :tags, :through => :taggables
 

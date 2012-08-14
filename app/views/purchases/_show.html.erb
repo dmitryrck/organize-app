@@ -1,60 +1,9 @@
 <%= show_for @object do |purchase| %>
-  <section class="fluidGridSystem">
-    <div class="row-fluid show-grid">
-      <div class="span4">
-        <%= purchase.attribute :title %>
-        <%= purchase.attribute :value do %>
-          <%= number_to_currency @object.value  %>
-        <% end %>
-        <%= purchase.attribute :purchased_at %>
-        <%= purchase.attribute :created_at %>
-        <%= purchase.attribute :updated_at %>
-      </div>
-
-      <div class="span8">
-        <%= simple_form_for @object.items.build, :html => { :class => 'form-horizontal' } do |f| %>
-          <%= f.input :purchase_id, :as => :hidden %>
-          <%= f.input :product, :autofocus => true %>
-          <%= f.input :description %>
-          <%= f.input :brand %>
-          <%= f.input :unit %>
-          <%= f.input :quantity %>
-          <%= f.input :price %>
-          <div class="form-actions">
-            <%= f.submit %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </section>
-
-  <%= purchase.attribute :items do %>
-    <table class="table table-striped table-bordered">
-      <tr>
-        <th><%= t "simple_form.labels.item.product" %></th>
-        <th><%= t 'simple_form.labels.item.description' %></th>
-        <th><%= t 'simple_form.labels.item.brand' %></th>
-        <th><%= t 'simple_form.labels.item.unit' %></th>
-        <th><%= t 'simple_form.labels.item.quantity' %></th>
-        <th><%= t 'simple_form.labels.item.price' %></th>
-        <th><%= t 'simple_form.labels.item.total' %></th>
-        <th></th>
-      </tr>
-
-      <% @object.items.each do |item| %>
-        <% if item.persisted? %>
-          <tr id="<%= dom_id item %>">
-            <td><%= item.product %></td>
-            <td><%= item.description %></td>
-            <td><%= item.brand %></td>
-            <td><%= item.unit %></td>
-            <td><%= item.quantity %></td>
-            <td><%= item.price %></td>
-            <td><%= item.total %></td>
-            <td><%= link_to t('actions.destroy'), item, :class => 'btn btn-danger', :data => { :confirm => 'Sure?' }, :method => :delete %></td>
-          </tr>
-        <% end %>
-      <% end %>
-    </table>
+  <%= purchase.attribute :title %>
+  <%= purchase.attribute :value do %>
+    <%= number_to_currency @object.value  %>
   <% end %>
+  <%= purchase.attribute :purchased_at %>
+  <%= purchase.attribute :created_at %>
+  <%= purchase.attribute :updated_at %>
 <% end %>
