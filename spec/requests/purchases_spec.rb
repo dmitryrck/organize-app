@@ -4,7 +4,7 @@ describe PurchasesController do
   it 'create purchase' do
     visit '/'
 
-    click_link 'New'
+    click_link 'New Purchase'
 
     fill_in 'Title', :with => 'purchase#1'
     fill_in 'Value', :with => '10.0'
@@ -14,6 +14,8 @@ describe PurchasesController do
     page.should have_content 'purchase#1'
     page.should have_content '$10.00'
   end
+
+  it 'paginate purchases'
 
   it 'edit purchase' do
     Purchase.create :title => 'purchase#1', :value => 10, :purchased_at => Date.yesterday
@@ -33,6 +35,7 @@ describe PurchasesController do
   end
 
   it 'delete a purchase' do
+    pending do
     Purchase.create :title => 'purchase#1', :value => 10
 
     visit '/'
@@ -42,5 +45,6 @@ describe PurchasesController do
 
     page.should_not have_content 'purchase#2'
     page.should_not have_content '$11.00'
+    end
   end
 end

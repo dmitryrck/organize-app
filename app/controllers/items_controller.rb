@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def create
     Item.create params[:item]
-    redirect_to params[:item][:purchase_id]
+    redirect_to purchase_path(params[:item][:purchase_id])
   end
 
   def destroy
