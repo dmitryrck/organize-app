@@ -1,3 +1,4 @@
 <%= f.input :title %>
 <%= f.input :value %>
+<%= f.input :tag_id, :collection => Tag.ordered %>
 <%= f.input :purchased_at, :as => :string %>

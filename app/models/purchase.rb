@@ -1,11 +1,10 @@
 class Purchase < ActiveRecord::Base
-  attr_accessible :title, :value, :purchased_at
+  attr_accessible :title, :value, :purchased_at, :tag_id
 
   validates :title, :value, :purchased_at, :presence => true
   validate :non_zero_value
 
-  has_many :taggables
-  has_many :tags, :through => :taggables
+  belongs_to :tag
 
   after_initialize :set_current_date
 
@@ -16,6 +15,10 @@ class Purchase < ActiveRecord::Base
 
     where('purchased_at >= ? and purchased_at <= ?', time.beginning_of_month, time.end_of_month)
   }
+
+  def tag_name
+    tag.name if tag
+  end
 
   protected
 

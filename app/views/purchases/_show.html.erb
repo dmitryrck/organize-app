@@ -3,8 +3,8 @@
   <%= purchase.attribute :value do %>
     <%= number_to_currency @object.value  %>
   <% end %>
-  <%= purchase.attribute :tags do %>
-    <%= tags_with_link @object.tags %>
+  <%= purchase.attribute :tag do %>
+    <%= @object.tag_name %>
   <% end %>
   <%= purchase.attribute :purchased_at %>
   <%= purchase.attribute :created_at %>
