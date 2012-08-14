@@ -8,4 +8,6 @@ describe ApplicationHelper do
   it 'should return period_url' do
     period_url(period).should eq '/purchases?year=2012&month=02'
   end
+
+  it 'should return tags with link'
 end

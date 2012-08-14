@@ -22,7 +22,7 @@ describe PurchasesController do
 
     visit '/'
 
-    click_link 'Show'
+    click_link 'purchase#1'
     click_link 'Edit'
 
     fill_in 'Title', :with => 'purchase#2'

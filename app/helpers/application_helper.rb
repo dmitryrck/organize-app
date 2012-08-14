@@ -4,4 +4,8 @@ module ApplicationHelper
 
     "#{purchases_path}?year=#{year}&month=#{month}"
   end
+
+  def tags_with_link tags=[]
+    tags.map { |tag| link_to tag.name, '#' }.to_sentence
+  end
 end
