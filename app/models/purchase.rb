@@ -6,6 +6,8 @@ class Purchase < ActiveRecord::Base
 
   belongs_to :tag
 
+  delegate :name, :to => :tag, :prefix => true
+
   after_initialize :set_current_date
 
   default_scope order(['purchased_at desc', 'id desc'])
@@ -15,10 +17,6 @@ class Purchase < ActiveRecord::Base
 
     where('purchased_at >= ? and purchased_at <= ?', time.beginning_of_month, time.end_of_month)
   }
-
-  def tag_name
-    tag.name if tag
-  end
 
   protected
 
