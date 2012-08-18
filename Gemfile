@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.7'
-gem 'sqlite3'
 gem 'simple_form'
 gem 'show_for'
 gem 'jquery-rails'
@@ -14,7 +13,16 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :production do
+  gem 'pg'
+end
+
+group :development do
+  gem 'heroku'
+end
+
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'capybara-webkit'
   gem 'database_cleaner'
