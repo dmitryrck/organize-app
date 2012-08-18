@@ -1,4 +1,6 @@
 OrganizeApp::Application.routes.draw do
+  devise_for :users
+
   resources :purchases
   resources :items
   root :to => 'purchases#index'

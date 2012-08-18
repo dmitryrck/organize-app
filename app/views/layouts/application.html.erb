@@ -12,11 +12,16 @@
           <a class="brand" href="/">App</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li><%= link_to 'Home', root_path %></li>
-              <li><%= link_to 'Purchases', purchases_path %></li>
-              <li><%= link_to 'New Purchase', new_purchase_path %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to 'Home', root_path %></li>
+                <li><%= link_to 'Purchases', purchases_path %></li>
+                <li><%= link_to 'New Purchase', new_purchase_path %></li>
+              <% end %>
             </ul>
             <ul class="nav pull-right">
+              <% if user_signed_in? %>
+                <li><%= link_to t('actions.logout'), destroy_user_session_path, :method => :delete %></li>
+              <% end %>
             </ul>
           </div>
         </div>
