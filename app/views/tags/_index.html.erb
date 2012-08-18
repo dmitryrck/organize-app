@@ -1,0 +1,13 @@
+<p><%= link_to 'New', new_tag_path, :class => 'btn btn-primary' %></p>
+
+<table class="table table-striped table-bordered">
+  <tr>
+    <th><%= t "simple_form.labels.tag.name" %></th>
+  </tr>
+
+  <% @objects.each do |object| %>
+    <tr id="<%= dom_id object %>">
+      <td><%= link_to object.name, object %></td>
+    </tr>
+  <% end %>
+</table>

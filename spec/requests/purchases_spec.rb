@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe PurchasesController do
+  before do
+    login
+  end
+
   it 'create purchase' do
     visit '/'
 

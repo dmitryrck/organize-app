@@ -17,7 +17,7 @@
 
   <% @objects.each do |object| %>
     <tr id="<%= dom_id object %>">
-      <td><%= object.tag_name %></td>
+      <td><%= link_to object.tag_name, object.tag if object.tag %></td>
       <td><%= link_to object.title, object %></td>
       <td><%= object.value %></td>
       <td><%= object.purchased_at %></td>

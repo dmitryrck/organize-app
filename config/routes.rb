@@ -2,7 +2,8 @@ OrganizeApp::Application.routes.draw do
   devise_for :users
 
   resources :purchases
-  resources :items
+  resources :tags
+
   root :to => 'purchases#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
