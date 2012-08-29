@@ -22,8 +22,8 @@ describe PurchasesController do
   context 'paginate purchases' do
     before do
       Purchase.create :title => 'purchase#1', :value => 10, :purchased_at => Date.current
-      Purchase.create :title => 'purchase#2', :value => 10, :purchased_at => (Date.current - 35.days)
-      Purchase.create :title => 'purchase#3', :value => 10, :purchased_at => (Date.current + 35.days)
+      Purchase.create :title => 'purchase#2', :value => 10, :purchased_at => (Date.current - 1.month)
+      Purchase.create :title => 'purchase#3', :value => 10, :purchased_at => (Date.current + 1.month)
 
       visit '/'
     end
