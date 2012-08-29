@@ -1,5 +1,5 @@
 class Purchase < ActiveRecord::Base
-  attr_accessible :title, :value, :purchased_at, :tag_id
+  attr_accessible :title, :value, :purchased_at, :tag_id, :observation
 
   validates :title, :value, :purchased_at, :presence => true
   validate :non_zero_value

@@ -1,5 +1,6 @@
 <%= show_for @object do |purchase| %>
   <%= purchase.attribute :title %>
+  <%= purchase.attribute :observation %>
   <%= purchase.attribute :value do %>
     <%= number_to_currency @object.value  %>
   <% end %>
