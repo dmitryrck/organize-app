@@ -1,5 +1,5 @@
-<%= f.input :title, :autofocus => true %>
-<%= f.input :observation, :input_html => { :rows => 5 } %>
-<%= f.input :value %>
-<%= f.input :tag_id, :collection => Tag.ordered %>
-<%= f.input :purchased_at, :as => :string %>
+<%= f.input :title, :autofocus => true, :input_html => { :class => 'input-xlarge' } %>
+<%= f.input :observation, :input_html => { :rows => 5, :class => 'input-xlarge' } %>
+<%= f.input :value, :as => :currency, :wrapper_html => { :class => 'input-prepend' }, :input_html => { :class => 'input-xlarge' } %>
+<%= f.input :tag_id, :collection => Tag.ordered, :input_html => { :class => 'input-xlarge' } %>
+<%= f.input :purchased_at, :as => :string, :input_html => { :class => 'input-xlarge' } %>
