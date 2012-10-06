@@ -2,7 +2,7 @@
   <%= purchase.attribute :title %>
   <%= purchase.attribute :observation %>
   <%= purchase.attribute :value do %>
-    <%= number_to_currency @object.value  %>
+    <%= currency @object.value  %>
   <% end %>
   <%= purchase.attribute :tag do %>
     <%= link_to @object.tag_name, @object.tag if @object.tag %>

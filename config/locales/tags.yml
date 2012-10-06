@@ -8,5 +8,6 @@ pt-BR:
     labels:
       tag:
         name: Nome
+        purchases_sum: Total
         created_at: Criado em
         updated_at: Atualizado em

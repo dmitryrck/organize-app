@@ -21,4 +21,14 @@ describe ApplicationHelper do
       expect(tags_with_link(tags)).to eq "<a href=\"#\">tag1</a> e <a href=\"#\">tag2</a>"
     end
   end
+
+  context 'currency' do
+    it 'greater than zero' do
+      expect(currency(10)).to eq "<span class=\"badge badge-info\">R$ 10,00</span>"
+    end
+
+    it 'less than zero' do
+      expect(currency(-10)).to eq "<span class=\"badge badge-important\">-R$ 10,00</span>"
+    end
+  end
 end
