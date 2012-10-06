@@ -6,4 +6,8 @@ class Tag < ActiveRecord::Base
   validates :name, :presence => true
 
   scope :ordered, order(:name)
+
+  def purchases_sum
+    purchases.sum(:value)
+  end
 end
