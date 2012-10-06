@@ -1,0 +1,12 @@
+pt-BR:
+  simple_form:
+    models:
+      tag:
+        one: tag
+        other: Tags
+
+    labels:
+      tag:
+        name: Nome
+        created_at: Criado em
+        updated_at: Atualizado em

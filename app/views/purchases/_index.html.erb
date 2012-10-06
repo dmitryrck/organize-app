@@ -1,15 +1,15 @@
 <ul class="pager">
   <li class="previous">
-    <%= link_to '&larr; Newer'.html_safe, period_url(@period.next) %>
+    <%= link_to t('paginate.newer').html_safe, period_url(@period.next) %>
   </li>
   <li class="next">
-    <%= link_to 'Older &rarr;'.html_safe, period_url(@period.previous) %>
+    <%= link_to t('paginate.older').html_safe, period_url(@period.previous) %>
   </li>
 </ul>
 
 <table class="table table-striped table-bordered">
   <tr>
-    <th><%= t "simple_form.labels.purchase.name" %></th>
+    <th><%= t "simple_form.labels.purchase.title" %></th>
     <th><%= t "simple_form.labels.purchase.value" %></th>
     <th><%= t "simple_form.labels.purchase.purchased_at" %></th>
   </tr>

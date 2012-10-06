@@ -1,4 +1,6 @@
 class Purchase < ActiveRecord::Base
+  include OrganizeApp::Locale
+
   attr_accessible :title, :value, :purchased_at, :tag_id, :observation
 
   validates :title, :value, :purchased_at, :presence => true

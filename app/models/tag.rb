@@ -1,4 +1,6 @@
 class Tag < ActiveRecord::Base
+  include OrganizeApp::Locale
+
   attr_accessible :name
 
   has_many :purchases

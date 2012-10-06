@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'spec_helper'
 
 describe PurchasesController do
@@ -8,15 +9,15 @@ describe PurchasesController do
   it 'create purchase' do
     visit '/'
 
-    click_link 'New Purchase'
+    click_link 'Novo'
 
-    fill_in 'Title', :with => 'purchase#1'
-    fill_in 'Value', :with => '10.0'
+    fill_in 'Título', :with => 'purchase#1'
+    fill_in 'Valor', :with => '10.0'
 
-    click_button 'Create Purchase'
+    click_button 'Criar'
 
-    page.should have_content 'purchase#1'
-    page.should have_content '$10.00'
+    expect(page).to have_content 'purchase#1'
+    expect(page).to have_content 'R$ 10,00'
   end
 
   context 'paginate purchases' do
@@ -29,48 +30,51 @@ describe PurchasesController do
     end
 
     it 'show by default current month' do
-      page.should have_content 'purchase#1'
+      expect(page).to have_content 'purchase#1'
     end
 
     it 'show by default current month' do
-      click_link 'Older'
+      click_link 'Antigos'
 
-      page.should have_content 'purchase#2'
+      expect(page).to have_content 'purchase#2'
     end
 
     it 'show by default current month' do
-      click_link 'Newer'
+      click_link 'Novos'
 
-      page.should have_content 'purchase#3'
+      expect(page).to have_content 'purchase#3'
     end
   end
 
   it 'edit purchase' do
-    Purchase.create :title => 'purchase#1', :value => 10, :purchased_at => Date.yesterday
+    Purchase.create :title => 'purchase#1',
+      :value => 10,
+      :purchased_at => Date.yesterday
 
     visit '/'
 
     click_link 'purchase#1'
-    click_link 'Edit'
+    click_link 'Editar'
 
-    fill_in 'Title', :with => 'purchase#2'
-    fill_in 'Value', :with => '11.0'
+    fill_in 'Título', :with => 'purchase#2'
+    fill_in 'Valor', :with => '11.0'
 
-    click_button 'Update Purchase'
+    click_button 'Atualizar'
 
-    page.should have_content 'purchase#2'
-    page.should have_content '$11.00'
+    expect(page).to have_content 'purchase#2'
+    expect(page).to have_content 'R$ 11,00'
   end
 
   it 'delete a purchase' do
-    Purchase.create :title => 'purchase#1', :value => 10
+    Purchase.create :title => 'purchase#1',
+      :value => 10
 
     visit '/'
 
     click_link 'purchase#1'
-    click_link 'Destroy'
+    click_link 'Apagar'
 
-    page.should_not have_content 'purchase#1'
-    page.should_not have_content '$10.00'
+    expect(page).to_not have_content 'purchase#1'
+    expect(page).to_not have_content '$10.00'
   end
 end

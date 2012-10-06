@@ -1,0 +1,17 @@
+pt-BR:
+  simple_form:
+    models:
+      purchase:
+        one: Movimentação
+        other: Movimentações
+
+    labels:
+      purchase:
+        title: Título
+        observation: Observação
+        tag: Tag
+        tag_id: Tag
+        value: Valor
+        purchased_at: Data
+        created_at: Criado em
+        updated_at: Atualizado em

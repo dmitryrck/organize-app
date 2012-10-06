@@ -1,0 +1,4 @@
+pt-BR:
+  paginate:
+    older: "Antigos &rarr;"
+    newer: "&larr; Novos"

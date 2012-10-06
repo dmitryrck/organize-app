@@ -1,0 +1,8 @@
+pt-BR:
+  actions:
+    new: Novo
+    back: Voltar
+    edit: Editar
+    destroy: Apagar
+  messages:
+    sure: Você tem certeza?
