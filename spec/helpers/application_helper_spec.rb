@@ -18,7 +18,7 @@ describe ApplicationHelper do
     end
 
     it 'should return tags with link' do
-      expect(tags_with_link(tags)).to eq "<a href=\"#\">tag1</a> and <a href=\"#\">tag2</a>"
+      expect(tags_with_link(tags)).to eq "<a href=\"#\">tag1</a> e <a href=\"#\">tag2</a>"
     end
   end
 end
