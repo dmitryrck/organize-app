@@ -34,6 +34,8 @@ describe TagsController do
     page.should have_content 'tag#2'
   end
 
+  it 'show sum'
+
   it 'delete a tag' do
     Tag.create :name => 'tag#1'
 
