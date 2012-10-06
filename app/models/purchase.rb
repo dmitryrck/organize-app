@@ -1,7 +1,8 @@
 class Purchase < ActiveRecord::Base
   include OrganizeApp::Locale
 
-  attr_accessible :title, :value, :purchased_at, :tag_id, :observation
+  attr_accessible :title, :purchased_at, :tag_id, :observation, :value,
+    :value_localized
 
   validates :title, :value, :purchased_at, :presence => true
   validate :non_zero_value
@@ -19,6 +20,14 @@ class Purchase < ActiveRecord::Base
 
     where('purchased_at >= ? and purchased_at <= ?', time.beginning_of_month, time.end_of_month)
   }
+
+  def value_localized
+    value
+  end
+
+  def value_localized=(value)
+    self.value = value.gsub('.', '').gsub(',', '.') if value
+  end
 
   protected
 

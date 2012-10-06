@@ -12,7 +12,7 @@ describe PurchasesController do
     click_link 'Novo'
 
     fill_in 'Título', :with => 'purchase#1'
-    fill_in 'Valor', :with => '10.0'
+    fill_in 'Valor', :with => '10,0'
 
     click_button 'Criar'
 
@@ -57,7 +57,7 @@ describe PurchasesController do
     click_link 'Editar'
 
     fill_in 'Título', :with => 'purchase#2'
-    fill_in 'Valor', :with => '11.0'
+    fill_in 'Valor', :with => '11,0'
 
     click_button 'Atualizar'
 

@@ -12,6 +12,7 @@ pt-BR:
         tag: Tag
         tag_id: Tag
         value: Valor
+        value_localized: Valor
         purchased_at: Data
         created_at: Criado em
         updated_at: Atualizado em
