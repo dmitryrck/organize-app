@@ -9,7 +9,6 @@
 
 <table class="table table-striped table-bordered">
   <tr>
-    <th><%= t "simple_form.labels.purchase.tag" %></th>
     <th><%= t "simple_form.labels.purchase.name" %></th>
     <th><%= t "simple_form.labels.purchase.value" %></th>
     <th><%= t "simple_form.labels.purchase.purchased_at" %></th>
@@ -17,9 +16,13 @@
 
   <% @objects.each do |object| %>
     <tr id="<%= dom_id object %>">
-      <td><%= link_to object.tag_name, object.tag if object.tag %></td>
-      <td><%= link_to object.title, object %></td>
-      <td><%= object.value %></td>
+      <td>
+        <% if object.tag %>
+          <span class="label label-info"><%= object.tag_name %></span>
+        <% end %>
+        <%= link_to object.title, object %>
+      </td>
+      <td><%= number_to_currency object.value %></td>
       <td><%= object.purchased_at %></td>
     </tr>
   <% end %>
