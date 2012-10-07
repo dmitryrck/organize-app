@@ -1,0 +1,10 @@
+<tr id="<%= dom_id purchase %>">
+  <td>
+    <% if purchase.tag %>
+      <span class="label label-info"><%= purchase.tag_name %></span>
+    <% end %>
+    <%= link_to purchase.title, purchase %>
+  </td>
+  <td><%= currency purchase.value %></td>
+  <td><%= purchase.purchased_at %></td>
+</tr>

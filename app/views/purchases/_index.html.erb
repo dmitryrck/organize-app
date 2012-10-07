@@ -8,22 +8,6 @@
 </ul>
 
 <table class="table table-striped table-bordered">
-  <tr>
-    <th><%= t "simple_form.labels.purchase.title" %></th>
-    <th><%= t "simple_form.labels.purchase.value" %></th>
-    <th><%= t "simple_form.labels.purchase.purchased_at" %></th>
-  </tr>
-
-  <% @objects.each do |object| %>
-    <tr id="<%= dom_id object %>">
-      <td>
-        <% if object.tag %>
-          <span class="label label-info"><%= object.tag_name %></span>
-        <% end %>
-        <%= link_to object.title, object %>
-      </td>
-      <td><%= currency object.value %></td>
-      <td><%= object.purchased_at %></td>
-    </tr>
-  <% end %>
+  <%= render 'header' %>
+  <%= render @objects %>
 </table>

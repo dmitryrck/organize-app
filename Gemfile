@@ -7,6 +7,7 @@ gem 'show_for'
 gem 'jquery-rails'
 gem 'puma'
 gem 'foreman'
+gem 'paginate'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

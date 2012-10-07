@@ -1,6 +1,7 @@
 OrganizeApp::Application.routes.draw do
   devise_for :users
 
+  get 'tags/:id/page/:page' => 'tags#show', :as => :paginate_tag
   resources :purchases
   resources :tags
 

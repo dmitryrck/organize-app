@@ -14,3 +14,10 @@
 body { padding-top: 60px; }
 .currency.input-xlarge { width: 243px; }
 .select.input-xlarge { width: 286px; }
+
+/* As is https://github.com/fnando/paginate */
+.paginate { overflow: hidden; }
+.paginate li { float: left; list-style: none; }
+.paginate li.previous-page:after { content: "«"; padding: 0 5px; }
+.paginate li.next-page:before { content: "»"; padding: 0 5px; }
+.paginate .disabled { display: none; }
