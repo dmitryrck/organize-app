@@ -5,6 +5,7 @@
   <% end %>
   <%= tag.attribute :created_at %>
   <%= tag.attribute :updated_at %>
+  <%= tag.attribute :purchases_count %>
   <%= tag.attribute :purchases do %>
     <table class="table table-striped table-bordered">
       <%= render 'purchases/header' %>

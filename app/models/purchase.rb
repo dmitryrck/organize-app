@@ -7,7 +7,7 @@ class Purchase < ActiveRecord::Base
   validates :title, :value, :purchased_at, :presence => true
   validate :non_zero_value
 
-  belongs_to :tag
+  belongs_to :tag, :counter_cache => true
 
   delegate :name, :to => :tag, :prefix => true
 

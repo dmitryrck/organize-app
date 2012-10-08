@@ -33,7 +33,7 @@ describe TagsController do
   end
 
   context 'with purchase' do
-    it 'show sum' do
+    it 'show sum and count' do
       tag = Tag.create! :name => 'tag#1'
       Purchase.create! :title => 'Purchase#1',
         :value => 10,
@@ -50,6 +50,7 @@ describe TagsController do
       click_link 'tag#1'
 
       expect(page).to have_content 'Total: R$ 2,00'
+      expect(page).to have_content 'Quantidade de compras: 2'
     end
 
     it 'show purchases' do
