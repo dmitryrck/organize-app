@@ -1,8 +1,5 @@
 pt-BR:
-  paginate:
-    older: "Antigos &rarr;"
-    newer: "&larr; Novos"
-    # FIXME:
-    previous: Anterior
-    page: ''
-    next: Próximo
+  views:
+    pagination:
+      previous: "&larr; Novos"
+      next: "Antigos &rarr;"

@@ -6,6 +6,6 @@ class TagsController < AdminController
   def show
     @object = Tag.find(params[:id])
 
-    @purchases = @object.purchases.paginate(:page => params[:page], :size => 10)
+    @purchases = @object.purchases.page(params[:page])
   end
 end

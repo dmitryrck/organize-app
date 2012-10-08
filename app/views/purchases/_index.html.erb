@@ -1,9 +1,9 @@
 <ul class="pager">
   <li class="previous">
-    <%= link_to t('paginate.newer').html_safe, period_url(@period.next) %>
+    <%= link_to t('views.pagination.previous').html_safe, period_url(@period.next) %>
   </li>
   <li class="next">
-    <%= link_to t('paginate.older').html_safe, period_url(@period.previous) %>
+    <%= link_to t('views.pagination.next').html_safe, period_url(@period.previous) %>
   </li>
 </ul>
 
