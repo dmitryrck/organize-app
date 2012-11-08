@@ -16,3 +16,7 @@ pt-BR:
         purchased_at: Data
         created_at: Criado em
         updated_at: Atualizado em
+
+    hints:
+      purchase:
+        value: "Informe despesa apenas colocando sinal negativo no campo (-)"

@@ -14,6 +14,7 @@
 body { padding-top: 60px; }
 .currency.input-xlarge { width: 243px; }
 .select.input-xlarge { width: 286px; }
+.currency.input-prepend { font-size: 1em; }
 
 /* As is https://github.com/fnando/paginate */
 .paginate { overflow: hidden; }
