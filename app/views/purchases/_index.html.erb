@@ -1,3 +1,4 @@
+<h3><%= I18n.t("date.month_names")[@period.month.to_i] %>/<%= @period.year %></h3>
 <ul class="pager">
   <li class="previous">
     <%= link_to t('views.pagination.previous').html_safe, period_url(@period.next) %>

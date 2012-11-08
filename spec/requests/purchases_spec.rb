@@ -77,4 +77,10 @@ describe PurchasesController do
     expect(page).to_not have_content 'purchase#1'
     expect(page).to_not have_content '$10.00'
   end
+
+  it 'show title' do
+    visit '/purchases?year=2012&month=10'
+
+    expect(page).to have_content 'Outubro/2012'
+  end
 end
