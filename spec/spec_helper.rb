@@ -3,15 +3,9 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 #require 'rspec/autorun'
-
-# Capybara setup
-require 'capybara/rspec'
-
-Capybara.configure do |config|
-  config.default_driver = :webkit
-  config.javascript_driver = :webkit
-  config.ignore_hidden_elements = true
-end
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
+Capybara.default_driver = :poltergeist
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
