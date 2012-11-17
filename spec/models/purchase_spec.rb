@@ -44,4 +44,20 @@ describe Purchase do
       subject.should be_valid
     end
   end
+
+  context 'value localized' do
+    it 'accept localized value' do
+      lambda { subject.value_localized = '12.345,67' }.should change { subject.value }.to(12_345.67)
+    end
+
+    it 'change nothing when is a empty string' do
+      subject.value = 10
+      lambda { subject.value_localized = '' }.should_not change { subject.value }
+    end
+
+    it 'change nothing when is nil' do
+      subject.value = 10
+      lambda { subject.value_localized = nil }.should_not change { subject.value }
+    end
+  end
 end

@@ -26,7 +26,9 @@ class Purchase < ActiveRecord::Base
   end
 
   def value_localized=(value)
-    self.value = value.gsub('.', '').gsub(',', '.') if value
+    unless value.blank?
+      self.value = value.gsub('.', '').gsub(',', '.')
+    end
   end
 
   protected
