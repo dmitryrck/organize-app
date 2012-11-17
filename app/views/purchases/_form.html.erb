@@ -2,4 +2,4 @@
 <%= f.input :observation, :input_html => { :rows => 5, :class => 'input-xlarge' } %>
 <%= f.input :value_localized, :as => :currency, :wrapper_html => { :class => 'input-prepend' }, :input_html => { :class => 'input-xlarge', :value => number_with_precision(f.object.value, :precision => 2) } %>
 <%= f.input :tag_id, :collection => Tag.ordered, :input_html => { :class => 'input-xlarge' } %>
-<%= f.input :purchased_at, :as => :string, :input_html => { :class => 'input-xlarge' } %>
+<%= f.input :purchased_at_localized, :as => :string, :input_html => { :class => 'input-xlarge', :value => l(f.object.purchased_at) } %>

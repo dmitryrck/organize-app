@@ -60,4 +60,22 @@ describe Purchase do
       lambda { subject.value_localized = nil }.should_not change { subject.value }
     end
   end
+
+  context 'purchased localized' do
+    it 'accept localized date' do
+      lambda { subject.purchased_at_localized = '31/12/2012' }.should change { subject.purchased_at }.to(Date.new(2012, 12, 31))
+    end
+
+    it 'change nothing when is a empty string' do
+      subject.purchased_at = Date.current
+      lambda { subject.purchased_at_localized = '' }.should_not change { subject.purchased_at }
+    end
+
+    it 'change nothing when is nil' do
+      subject.purchased_at = Date.current
+      lambda { subject.purchased_at_localized = nil }.should_not change { subject.purchased_at }
+    end
+
+    it 'dont change when date is invalid'
+  end
 end

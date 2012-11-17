@@ -2,7 +2,7 @@ class Purchase < ActiveRecord::Base
   include OrganizeApp::Locale
 
   attr_accessible :title, :purchased_at, :tag_id, :observation, :value,
-    :value_localized
+    :value_localized, :purchased_at_localized
 
   validates :title, :value, :purchased_at, :presence => true
   validate :non_zero_value
@@ -28,6 +28,18 @@ class Purchase < ActiveRecord::Base
   def value_localized=(value)
     unless value.blank?
       self.value = value.gsub('.', '').gsub(',', '.')
+    end
+  end
+
+  def purchased_at_localized
+    purchased_at
+  end
+
+  def purchased_at_localized=(date)
+    unless date.blank?
+      day, month, year = date.split('/').map(&:to_i)
+
+      self.purchased_at = Date.new(year, month, day)
     end
   end
 
