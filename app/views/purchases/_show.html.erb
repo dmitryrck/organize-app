@@ -5,7 +5,7 @@
     <%= currency @object.value  %>
   <% end %>
   <%= purchase.attribute :tag do %>
-    <%= link_to @object.tag_name, @object.tag if @object.tag %>
+    <%= link_to @object.tag, @object.tag if @object.tag %>
   <% end %>
   <%= purchase.attribute :purchased_at %>
   <%= purchase.attribute :created_at %>

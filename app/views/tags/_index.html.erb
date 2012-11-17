@@ -7,7 +7,7 @@
 
   <% @objects.each do |object| %>
     <tr id="<%= dom_id object %>">
-      <td><%= link_to object.name, object %></td>
+      <td><%= link_to object, object %></td>
     </tr>
   <% end %>
 </table>

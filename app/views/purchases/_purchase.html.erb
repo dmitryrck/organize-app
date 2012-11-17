@@ -1,9 +1,9 @@
 <tr id="<%= dom_id purchase %>">
   <td>
     <% if purchase.tag %>
-      <span class="label label-info"><%= purchase.tag_name %></span>
+      <span class="label label-info"><%= purchase.tag %></span>
     <% end %>
-    <%= link_to purchase.title, purchase %>
+    <%= link_to purchase, purchase %>
   </td>
   <td><%= currency purchase.value %></td>
   <td><%= purchase.purchased_at %></td>

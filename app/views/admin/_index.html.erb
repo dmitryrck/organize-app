@@ -6,7 +6,7 @@
 
   <% @objects.each do |object| %>
     <tr id="<%= dom_id object %>">
-      <td><%= object.name %></td>
+      <td><%= object %></td>
       <td><%= link_to t('actions.show'), object, :class => :btn %></td>
     </tr>
   <% end %>

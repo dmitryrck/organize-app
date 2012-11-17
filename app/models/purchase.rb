@@ -9,8 +9,6 @@ class Purchase < ActiveRecord::Base
 
   belongs_to :tag, :counter_cache => true
 
-  delegate :name, :to => :tag, :prefix => true
-
   after_initialize :set_current_date
 
   default_scope order(['purchased_at desc', 'id desc'])
