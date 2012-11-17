@@ -6,18 +6,37 @@ describe PurchasesController do
     login
   end
 
-  it 'create purchase' do
-    visit '/'
+  context 'create purchase' do
+    it 'show' do
+      visit '/'
 
-    click_link 'Novo'
+      click_link 'Novo'
 
-    fill_in 'Título', :with => 'purchase#1'
-    fill_in 'Valor', :with => '10,0'
+      fill_in 'Título', :with => 'purchase#1'
+      fill_in 'Valor', :with => '10,0'
 
-    click_button 'Criar'
+      click_button 'Criar'
 
-    expect(page).to have_content 'purchase#1'
-    expect(page).to have_content 'R$ 10,00'
+      expect(page).to have_content 'purchase#1'
+      expect(page).to have_content 'R$ 10,00'
+      expect(page).to have_content I18n.l(Date.current)
+    end
+
+    it 'list' do
+      visit '/'
+
+      click_link 'Novo'
+
+      fill_in 'Título', :with => 'purchase#1'
+      fill_in 'Valor', :with => '10,0'
+
+      click_button 'Criar'
+      click_link 'Voltar'
+
+      expect(page).to have_content 'purchase#1'
+      expect(page).to have_content 'R$ 10,00'
+      expect(page).to have_content I18n.l(Date.current)
+    end
   end
 
   context 'paginate purchases' do
@@ -58,11 +77,13 @@ describe PurchasesController do
 
     fill_in 'Título', :with => 'purchase#2'
     fill_in 'Valor', :with => '11,0'
+    fill_in 'Data', :with => '31/12/2011'
 
     click_button 'Atualizar'
 
     expect(page).to have_content 'purchase#2'
     expect(page).to have_content 'R$ 11,00'
+    expect(page).to have_content '31/12/2011'
   end
 
   it 'delete a purchase' do

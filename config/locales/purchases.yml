@@ -14,6 +14,7 @@ pt-BR:
         value: Valor
         value_localized: Valor
         purchased_at: Data
+        purchased_at_localized: Data
         created_at: Criado em
         updated_at: Atualizado em
 
