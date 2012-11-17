@@ -1,5 +1,10 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject do
+    described_class.new :email => 'user@mail.com',
+      :password => 'password'
+  end
+
+  it { should be_valid }
 end
