@@ -1,13 +1,13 @@
+<p><%= link_to t('actions.new'), { :action => :new }, :class => 'btn btn-primary' %></p>
+
 <table class="table table-striped table-bordered">
   <tr>
     <th><%= t "simple_form.labels.#{controller_name.singularize}.name" %></th>
-    <th></th>
   </tr>
 
   <% @objects.each do |object| %>
     <tr id="<%= dom_id object %>">
-      <td><%= object %></td>
-      <td><%= link_to t('actions.show'), object, :class => :btn %></td>
+      <td><%= link_to object, object %></td>
     </tr>
   <% end %>
 </table>
