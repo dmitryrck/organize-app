@@ -14,8 +14,11 @@ Go to [http://localhost:5000](http://localhost:5000), and use
 
 ## TODO
 
-* Add `to_s` to all models;
 * Fix paginations link at tags show view;
+* Rename `Purchase` model to `Movimentation`;
+* Use Github issue instead of README todo;
+* Add screenshots;
+* Add "heroku sample";
 
 ## License
 
