@@ -12,6 +12,8 @@ module Login
       fill_in 'Password', :with => user.password
 
       click_button 'Sign in'
+
+      expect(page).to have_content 'user@mail.com'
     end
   end
 end
