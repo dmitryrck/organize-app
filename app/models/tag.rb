@@ -12,4 +12,8 @@ class Tag < ActiveRecord::Base
   def purchases_sum
     purchases.sum(:value)
   end
+
+  def to_s
+    name
+  end
 end

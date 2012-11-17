@@ -9,6 +9,10 @@ describe Purchase do
 
   it { should be_valid }
 
+  it 'return title as to_s' do
+    expect(subject.to_s).to eq 'purchase#1'
+  end
+
   it 'should not be valid without title' do
     subject.title = nil
     subject.should_not be_valid

@@ -43,6 +43,10 @@ class Purchase < ActiveRecord::Base
     end
   end
 
+  def to_s
+    title
+  end
+
   protected
 
   def set_current_date

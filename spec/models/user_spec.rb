@@ -7,4 +7,8 @@ describe User do
   end
 
   it { should be_valid }
+
+  it 'return name as to_s' do
+    expect(subject.to_s).to eq 'user@mail.com'
+  end
 end
