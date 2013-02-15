@@ -4,7 +4,7 @@ class CurrencyInput < SimpleForm::Inputs::Base
     [
       '<span class="add-on">R$ </span>',
       @builder.text_field(attribute_name, input_html_options),
-      "<br>#{I18n.t('simple_form.hints.purchase.value')}"
+      "<br>#{I18n.t('simple_form.hints.movimentation.value')}"
     ].join.html_safe
   end
 end

@@ -8,8 +8,8 @@ pt-BR:
     labels:
       tag:
         name: Nome
-        purchases_sum: Total
+        movimentations_sum: Total
         created_at: Criado em
         updated_at: Atualizado em
-        purchases: Compras
-        purchases_count: Quantidade de compras
+        movimentations: Movimentações
+        movimentations_count: Quantidade de movimentações

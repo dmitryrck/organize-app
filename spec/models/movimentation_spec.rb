@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Purchase do
+describe Movimentation do
   subject do
-    described_class.new :title => 'purchase#1',
+    Movimentation.new :title => 'Movimentation#1',
       :value => 1,
       :purchased_at => Date.yesterday
   end
@@ -10,7 +10,7 @@ describe Purchase do
   it { should be_valid }
 
   it 'return title as to_s' do
-    expect(subject.to_s).to eq 'purchase#1'
+    expect(subject.to_s).to eq 'Movimentation#1'
   end
 
   it 'should not be valid without title' do
@@ -65,7 +65,7 @@ describe Purchase do
     end
   end
 
-  context 'purchased localized' do
+  context 'purchased_at localized' do
     it 'accept localized date' do
       lambda { subject.purchased_at_localized = '31/12/2012' }.should change { subject.purchased_at }.to(Date.new(2012, 12, 31))
     end

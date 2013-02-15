@@ -3,14 +3,14 @@ class Tag < ActiveRecord::Base
 
   attr_accessible :name
 
-  has_many :purchases
+  has_many :movimentations
 
   validates :name, :presence => true
 
   scope :ordered, order(:name)
 
-  def purchases_sum
-    purchases.sum(:value)
+  def movimentations_sum
+    movimentations.sum(:value)
   end
 
   def to_s

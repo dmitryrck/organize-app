@@ -6,6 +6,6 @@ class TagsController < AdminController
   def show
     @object = Tag.find(params[:id])
 
-    @purchases = @object.purchases.page(params[:page])
+    @movimentations = @object.movimentations.page(params[:page])
   end
 end

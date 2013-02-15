@@ -1,4 +1,4 @@
-class Purchase < ActiveRecord::Base
+class Movimentation < ActiveRecord::Base
   include OrganizeApp::Locale
 
   attr_accessible :title, :purchased_at, :tag_id, :observation, :value,

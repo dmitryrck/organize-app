@@ -1,12 +1,12 @@
 pt-BR:
   simple_form:
     models:
-      purchase:
+      movimentation:
         one: Movimentação
         other: Movimentações
 
     labels:
-      purchase:
+      movimentation:
         title: Título
         observation: Observação
         tag: Tag
@@ -19,5 +19,5 @@ pt-BR:
         updated_at: Atualizado em
 
     hints:
-      purchase:
+      movimentation:
         value: "Informe despesa apenas colocando sinal negativo no campo (-)"
