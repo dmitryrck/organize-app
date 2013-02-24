@@ -1,5 +1,7 @@
 # OrganizeApp
 
+[![Build Status](https://travis-ci.org/dmitrynix/organize-app.png)](https://travis-ci.org/dmitrynix/organize-app)
+
 ## Getting started
 
     % git clone git://github.com/dmitrynix/organize-app.git
