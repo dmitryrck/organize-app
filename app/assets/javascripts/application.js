@@ -13,4 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require jquery.price_format
 //= require_self
+
+if ( $('#container').data('env') != 'test' ) {
+  $('.currency').priceFormat({
+    prefix: '',
+    centsSeparator: ',',
+    thousandsSeparator: '.'
+  });
+}
