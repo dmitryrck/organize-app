@@ -3,4 +3,4 @@
 <%= f.input :kind, :collection => [['Receita', true], ['Despesa', false]], :include_blank => false %>
 <%= f.input :value, :as => :currency, :wrapper_html => { :class => 'input-prepend' }, :input_html => { :class => 'input-xlarge', :value => number_with_precision(f.object.value, :precision => 2) } %>
 <%= f.input :tag_id, :collection => Tag.ordered, :input_html => { :class => 'input-xlarge' } %>
-<%= f.input :purchased_at_localized, :as => :string, :input_html => { :class => 'input-xlarge', :value => l(f.object.purchased_at) } %>
+<%= f.input :purchased_at, :as => :string, :input_html => { :class => 'input-xlarge', :value => (l(f.object.purchased_at) if f.object.purchased_at) } %>

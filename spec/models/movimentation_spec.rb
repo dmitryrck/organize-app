@@ -69,20 +69,12 @@ describe Movimentation do
   end
 
   context 'purchased_at localized' do
-    it 'accept localized date' do
-      lambda { subject.purchased_at_localized = '31/12/2012' }.should change { subject.purchased_at }.to(Date.new(2012, 12, 31))
+    it 'accept string localized date' do
+      lambda { subject.purchased_at = '31/12/2012' }.should change { subject.purchased_at }.to(Date.new(2012, 12, 31))
     end
 
-    it 'change nothing when is a empty string' do
-      subject.purchased_at = Date.current
-      lambda { subject.purchased_at_localized = '' }.should_not change { subject.purchased_at }
+    it 'accept date values' do
+      lambda { subject.purchased_at = Date.new(2013, 2, 24) }.should change { subject.purchased_at }.to(Date.new(2013, 2, 24))
     end
-
-    it 'change nothing when is nil' do
-      subject.purchased_at = Date.current
-      lambda { subject.purchased_at_localized = nil }.should_not change { subject.purchased_at }
-    end
-
-    it 'dont change when date is invalid'
   end
 end

@@ -2,7 +2,7 @@ class Movimentation < ActiveRecord::Base
   include OrganizeApp::Locale
 
   attr_accessible :title, :purchased_at, :tag_id, :observation, :kind, :value,
-    :purchased_at_localized
+    :purchased_at
 
   validates :title, :value, :purchased_at, :presence => true
   validates :value, :numericality => { :greater_than_or_equal_to => 0 }
@@ -35,16 +35,14 @@ class Movimentation < ActiveRecord::Base
     super
   end
 
-  def purchased_at_localized
-    purchased_at
-  end
-
-  def purchased_at_localized=(date)
-    unless date.blank?
+  def purchased_at=(date)
+    if date.present? && date.is_a?(String)
       day, month, year = date.split('/').map(&:to_i)
 
-      self.purchased_at = Date.new(year, month, day)
+      date = Date.new(year, month, day)
     end
+
+    super
   end
 
   def to_s
