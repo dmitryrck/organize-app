@@ -2,7 +2,7 @@
   <%= movimentation.attribute :title %>
   <%= movimentation.attribute :observation %>
   <%= movimentation.attribute :value do %>
-    <%= currency @object.value  %>
+    <%= currency @object.value_formatted %>
   <% end %>
   <%= movimentation.attribute :tag do %>
     <%= link_to @object.tag, @object.tag if @object.tag %>

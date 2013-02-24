@@ -11,13 +11,10 @@ pt-BR:
         observation: Observação
         tag: Tag
         tag_id: Tag
+        kind: Tipo
         value: Valor
         value_localized: Valor
         purchased_at: Data
         purchased_at_localized: Data
         created_at: Criado em
         updated_at: Atualizado em
-
-    hints:
-      movimentation:
-        value: "Informe despesa apenas colocando sinal negativo no campo (-)"

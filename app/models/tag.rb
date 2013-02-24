@@ -10,10 +10,20 @@ class Tag < ActiveRecord::Base
   scope :ordered, order(:name)
 
   def movimentations_sum
-    movimentations.sum(:value)
+    movimentations_revenue_sum - movimentations_expense_sum
   end
 
   def to_s
     name
+  end
+
+  private
+
+  def movimentations_expense_sum
+    movimentations.where(:kind => true).sum(:value)
+  end
+
+  def movimentations_revenue_sum
+    movimentations.where(:kind => false).sum(:value)
   end
 end

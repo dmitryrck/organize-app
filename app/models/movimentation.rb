@@ -1,11 +1,11 @@
 class Movimentation < ActiveRecord::Base
   include OrganizeApp::Locale
 
-  attr_accessible :title, :purchased_at, :tag_id, :observation, :value,
-    :value_localized, :purchased_at_localized
+  attr_accessible :title, :purchased_at, :tag_id, :observation, :kind, :value,
+    :purchased_at_localized
 
   validates :title, :value, :purchased_at, :presence => true
-  validate :non_zero_value
+  validates :value, :numericality => { :greater_than_or_equal_to => 0 }
 
   belongs_to :tag, :counter_cache => true
 
@@ -19,14 +19,20 @@ class Movimentation < ActiveRecord::Base
     where('purchased_at >= ? and purchased_at <= ?', time.beginning_of_month, time.end_of_month)
   }
 
-  def value_localized
-    value
+  def value_formatted
+    if kind
+      value
+    else
+      value * -1
+    end
   end
 
-  def value_localized=(value)
-    unless value.blank?
-      self.value = value.gsub('.', '').gsub(',', '.')
+  def value=(value)
+    if value.respond_to?(:gsub)
+      value = value.gsub('.', '').gsub(',', '.')
     end
+
+    super
   end
 
   def purchased_at_localized
@@ -49,11 +55,5 @@ class Movimentation < ActiveRecord::Base
 
   def set_current_date
     self.purchased_at ||= Date.current
-  end
-
-  def non_zero_value
-    return if value.blank?
-
-    errors.add(:value, :invalid) if value.zero?
   end
 end

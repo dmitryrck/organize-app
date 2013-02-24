@@ -41,7 +41,8 @@ describe TagsController do
         :tag_id => tag.id,
         :purchased_at => Date.current
       Movimentation.create! :title => 'Movimentation#2',
-        :value => -8,
+        :kind => false,
+        :value => 8,
         :tag_id => tag.id,
         :purchased_at => Date.current
 
@@ -50,7 +51,7 @@ describe TagsController do
       click_link 'Tags'
       click_link 'tag#1'
 
-      expect(page).to have_content 'Total: R$ 2,00'
+      expect(page).to have_content 'Total: -R$ 2,00'
       expect(page).to have_content 'Quantidade de movimentações: 2'
     end
 
@@ -59,7 +60,7 @@ describe TagsController do
 
       12.times do |number|
         Movimentation.create! :title => "Movimentation##{number}",
-          :value => (-2.5 + number),
+          :value => (2.5 + number),
           :tag_id => tag.id,
           :purchased_at => Date.current
       end
@@ -75,7 +76,7 @@ describe TagsController do
       click_link 'Antigos'
 
       expect(page).to have_content 'Movimentation#0'
-      expect(page).to have_content '-R$ 2,50'
+      expect(page).to have_content 'R$ 2,50'
 
       # FIXME
       # expect(page).to_not have_link 'Antigos'

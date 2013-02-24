@@ -33,14 +33,9 @@ describe Movimentation do
   end
 
   context 'validate value' do
-    it 'should not be valid with zero as value' do
-      subject.value = 0
-      subject.should_not be_valid
-    end
-
-    it 'should be valid with negative value' do
+    it 'should not be valid with negative value' do
       subject.value = -10
-      subject.should be_valid
+      subject.should_not be_valid
     end
 
     it 'should be valid with positive value' do
@@ -51,17 +46,25 @@ describe Movimentation do
 
   context 'value localized' do
     it 'accept localized value' do
-      lambda { subject.value_localized = '12.345,67' }.should change { subject.value }.to(12_345.67)
+      lambda { subject.value = '12.345,67' }.should change { subject.value }.to(12_345.67)
     end
+  end
 
-    it 'change nothing when is a empty string' do
-      subject.value = 10
-      lambda { subject.value_localized = '' }.should_not change { subject.value }
-    end
+  context 'value formatted' do
+    context 'return value based on kind' do
+      it 'when kind is true' do
+        subject.kind = true
+        subject.value = 10
 
-    it 'change nothing when is nil' do
-      subject.value = 10
-      lambda { subject.value_localized = nil }.should_not change { subject.value }
+        expect(subject.value_formatted).to eq 10
+      end
+
+      it 'when kind is false' do
+        subject.kind = false
+        subject.value = 10
+
+        expect(subject.value_formatted).to eq -10
+      end
     end
   end
 

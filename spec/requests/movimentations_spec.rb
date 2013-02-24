@@ -23,9 +23,15 @@ feature MovimentationsController do
 
   context 'paginate' do
     before do
-      Movimentation.create :title => 'Movimentation#1', :value => 10, :purchased_at => Date.current
-      Movimentation.create :title => 'Movimentation#2', :value => 10, :purchased_at => (Date.current - 1.month)
-      Movimentation.create :title => 'Movimentation#3', :value => 10, :purchased_at => (Date.current + 1.month)
+      Movimentation.create :title => 'Movimentation#1',
+        :value => 10,
+        :purchased_at => Date.current
+      Movimentation.create :title => 'Movimentation#2',
+        :value => 10,
+        :purchased_at => (Date.current - 1.month)
+      Movimentation.create :title => 'Movimentation#3',
+        :value => 10,
+        :purchased_at => (Date.current + 1.month)
 
       visit '/'
     end
