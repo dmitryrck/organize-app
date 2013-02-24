@@ -20,7 +20,7 @@ class Movimentation < ActiveRecord::Base
   }
 
   def value_formatted
-    if kind
+    if kind?
       value
     else
       value * -1
