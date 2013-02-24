@@ -4,12 +4,13 @@
 
 ## Getting started
 
-    % git clone git://github.com/dmitrynix/organize-app.git
-    % cd organize-app
-    % bundle install
-    % rake db:migrate
-    % rake db:seed
-    % foreman start
+    git clone git://github.com/dmitrynix/organize-app.git
+    cd organize-app
+    bundle install
+    cp config/database.yml{.sample,}
+    rake db:migrate
+    rake db:seed
+    foreman start
 
 Go to [http://localhost:5000](http://localhost:5000), and use
 `admin@example.com` with `password`.
