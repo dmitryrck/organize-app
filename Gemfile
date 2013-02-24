@@ -21,6 +21,7 @@ end
 
 group :development do
   gem 'heroku'
+  gem 'pry'
 end
 
 group :development, :test do
