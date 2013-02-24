@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require bootstrap
 //= require jquery.price_format
@@ -22,4 +23,8 @@ if ( $('#container').data('env') != 'test' ) {
     centsSeparator: ',',
     thousandsSeparator: '.'
   });
+
+  $.datepicker.setDefaults({ dateFormat: 'dd/mm/yy' });
+
+  $(".date").datepicker();
 }
