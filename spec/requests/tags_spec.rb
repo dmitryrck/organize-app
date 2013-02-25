@@ -37,6 +37,7 @@ describe TagsController do
     it 'show sum and count' do
       tag = Tag.create! :name => 'tag#1'
       Movimentation.create! :title => 'Movimentation#1',
+        :kind => true,
         :value => 10,
         :tag_id => tag.id,
         :purchased_at => Date.current
@@ -51,7 +52,7 @@ describe TagsController do
       click_link 'Tags'
       click_link 'tag#1'
 
-      expect(page).to have_content 'Total: -R$ 2,00'
+      expect(page).to have_content 'Total: R$ 2,00'
       expect(page).to have_content 'Quantidade de movimentações: 2'
     end
 

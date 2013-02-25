@@ -19,6 +19,9 @@ class Movimentation < ActiveRecord::Base
     where('purchased_at >= ? and purchased_at <= ?', time.beginning_of_month, time.end_of_month)
   }
 
+  scope :expenses, where(:kind => false)
+  scope :revenues, where(:kind => true)
+
   def value_formatted
     if kind?
       value

@@ -20,10 +20,10 @@ class Tag < ActiveRecord::Base
   private
 
   def movimentations_expense_sum
-    movimentations.where(:kind => true).sum(:value)
+    movimentations.expenses.sum(:value)
   end
 
   def movimentations_revenue_sum
-    movimentations.where(:kind => false).sum(:value)
+    movimentations.revenues.sum(:value)
   end
 end
