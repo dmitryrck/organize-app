@@ -9,7 +9,7 @@ feature MovimentationsController do
   scenario 'create' do
     visit '/'
 
-    click_link 'Novo'
+    click_link 'Novo Movimento'
 
     fill_in 'Título', :with => 'Movimentation#1'
     fill_in 'Valor', :with => '10,0'

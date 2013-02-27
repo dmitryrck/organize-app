@@ -9,7 +9,10 @@ describe TagsController do
   it 'create' do
     visit '/'
     click_link 'Tags'
-    click_link 'Novo'
+
+    within '#container' do
+      click_link 'Novo'
+    end
 
     fill_in 'Nome', :with => 'tag#1'
 
