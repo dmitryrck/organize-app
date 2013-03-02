@@ -1,13 +1,11 @@
 class Tag < ActiveRecord::Base
   include OrganizeApp::Locale
 
-  attr_accessible :name
-
   has_many :movimentations
 
   validates :name, :presence => true
 
-  scope :ordered, order(:name)
+  scope :ordered, lambda { order(:name) }
 
   def movimentations_sum
     movimentations_revenue_sum - movimentations_expense_sum

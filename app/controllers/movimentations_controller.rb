@@ -8,4 +8,11 @@ class MovimentationsController < AdminController
 
     @objects = Movimentation.by_period(@period)
   end
+
+  private
+
+  def object_params
+    params.require(:movimentation).permit(:title,
+      :purchased_at, :tag_id, :observation, :kind, :value)
+  end
 end

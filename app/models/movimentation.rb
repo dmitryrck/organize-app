@@ -1,9 +1,6 @@
 class Movimentation < ActiveRecord::Base
   include OrganizeApp::Locale
 
-  attr_accessible :title, :purchased_at, :tag_id, :observation, :kind, :value,
-    :purchased_at
-
   validates :title, :value, :purchased_at, :presence => true
   validates :value, :numericality => { :greater_than_or_equal_to => 0 }
 
@@ -11,7 +8,7 @@ class Movimentation < ActiveRecord::Base
 
   after_initialize :set_current_date
 
-  default_scope order(['purchased_at desc', 'id desc'])
+  default_scope { order(['purchased_at desc', 'id desc']) }
 
   scope :by_period, lambda { |period|
     time = Date.new(period.year.to_i, period.month.to_i, 1)
@@ -19,8 +16,8 @@ class Movimentation < ActiveRecord::Base
     where('purchased_at >= ? and purchased_at <= ?', time.beginning_of_month, time.end_of_month)
   }
 
-  scope :expenses, where(:kind => false)
-  scope :revenues, where(:kind => true)
+  scope :expenses, lambda { where(:kind => false) }
+  scope :revenues, lambda { where(:kind => true) }
 
   def value_formatted
     if kind?

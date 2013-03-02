@@ -8,4 +8,10 @@ class TagsController < AdminController
 
     @movimentations = @object.movimentations.page(params[:page])
   end
+
+  private
+
+  def object_params
+    params.require(:tag).permit(:name)
+  end
 end

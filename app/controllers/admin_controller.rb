@@ -10,7 +10,7 @@ class AdminController < ApplicationController
   end
 
   def create
-    @object = object_class.create params[params_key]
+    @object = object_class.new object_params
     @object.save
     respond_with @object
   end
@@ -25,7 +25,7 @@ class AdminController < ApplicationController
 
   def update
     @object = object_class.find params[:id]
-    @object.update_attributes params[params_key]
+    @object.update_attributes object_params
     respond_with @object
   end
 
@@ -39,9 +39,5 @@ class AdminController < ApplicationController
 
   def object_class
     controller_name.singularize.camelize.constantize
-  end
-
-  def params_key
-    controller_name.singularize
   end
 end

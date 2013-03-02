@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  #attr_accessible :email, :password, :password_confirmation, :remember_me
 
   def to_s
     email

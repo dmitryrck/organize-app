@@ -11,8 +11,9 @@
  *= require bootstrap
  *= require bootstrap-responsive
  *= require jquery-ui-1.9.20-bootstrap
- *= require_tree .
+ *= require_self
  */
+
 body { padding-top: 60px; }
 .currency.input-xlarge { width: 243px; }
 .select.input-xlarge { width: 286px; }
