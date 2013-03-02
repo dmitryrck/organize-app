@@ -1,0 +1,10 @@
+<tr id="<%= dom_id moviment %>">
+  <td>
+    <% if moviment.tag %>
+      <span class="label label-info"><%= moviment.tag %></span>
+    <% end %>
+    <%= link_to moviment, moviment %>
+  </td>
+  <td><%= currency moviment.value_formatted %></td>
+  <td><%= l moviment.purchased_at %></td>
+</tr>

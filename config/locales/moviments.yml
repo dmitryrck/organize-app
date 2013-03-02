@@ -1,12 +1,12 @@
 pt-BR:
   simple_form:
     models:
-      movimentation:
+      moviment:
         one: Movimentação
         other: Movimentações
 
     labels:
-      movimentation:
+      moviment:
         title: Título
         observation: Observação
         tag: Tag

@@ -1,4 +1,4 @@
-class MovimentationsController < AdminController
+class MovimentsController < AdminController
   def index
     if params[:year].present? && params[:month].present?
       @period = Period.new(params[:year], params[:month])
@@ -6,13 +6,13 @@ class MovimentationsController < AdminController
       @period = Period.new(Date.current.year, Date.current.month)
     end
 
-    @objects = Movimentation.by_period(@period)
+    @objects = Moviment.by_period(@period)
   end
 
   private
 
   def object_params
-    params.require(:movimentation).permit(:title,
+    params.require(:moviment).permit(:title,
       :purchased_at, :tag_id, :observation, :kind, :value)
   end
 end

@@ -2,10 +2,10 @@ OrganizeApp::Application.routes.draw do
   devise_for :users
 
   get 'tags/:id/page/:page' => 'tags#show', :as => :paginate_tag
-  resources :movimentations
+  resources :moviments
   resources :tags
 
-  root :to => 'movimentations#index'
+  root :to => 'moviments#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

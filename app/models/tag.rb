@@ -1,14 +1,14 @@
 class Tag < ActiveRecord::Base
   include OrganizeApp::Locale
 
-  has_many :movimentations
+  has_many :moviments
 
   validates :name, :presence => true
 
   scope :ordered, lambda { order(:name) }
 
-  def movimentations_sum
-    movimentations_revenue_sum - movimentations_expense_sum
+  def moviments_sum
+    moviments_revenue_sum - moviments_expense_sum
   end
 
   def to_s
@@ -17,11 +17,11 @@ class Tag < ActiveRecord::Base
 
   private
 
-  def movimentations_expense_sum
-    movimentations.expenses.sum(:value)
+  def moviments_expense_sum
+    moviments.expenses.sum(:value)
   end
 
-  def movimentations_revenue_sum
-    movimentations.revenues.sum(:value)
+  def moviments_revenue_sum
+    moviments.revenues.sum(:value)
   end
 end

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Movimentation do
+describe Moviment do
   subject do
-    Movimentation.new :title => 'Movimentation#1',
+    Moviment.new :title => 'Moviment#1',
       :value => 1,
       :purchased_at => Date.yesterday
   end
@@ -10,7 +10,7 @@ describe Movimentation do
   it { should be_valid }
 
   it 'return title as to_s' do
-    expect(subject.to_s).to eq 'Movimentation#1'
+    expect(subject.to_s).to eq 'Moviment#1'
   end
 
   it 'should not be valid without title' do

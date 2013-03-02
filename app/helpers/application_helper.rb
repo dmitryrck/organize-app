@@ -2,7 +2,7 @@ module ApplicationHelper
   def period_url period
     year, month = period.to_s.split('-')
 
-    "#{movimentations_path}?year=#{year}&month=#{month}"
+    "#{moviments_path}?year=#{year}&month=#{month}"
   end
 
   def tags_with_link tags=[]

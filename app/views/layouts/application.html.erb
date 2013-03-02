@@ -18,11 +18,11 @@
           <div class="nav-collapse">
             <ul class="nav">
               <% if user_signed_in? %>
-                <li class="<%= 'active' if controller_name == 'movimentations' && action_name != 'new' %>">
+                <li class="<%= 'active' if controller_name == 'moviments' && action_name != 'new' %>">
                   <%= link_to '<i class="icon-money"></i>Movimentos'.html_safe, root_path %>
                 </li>
-                <li class="<%= 'active' if controller_name == 'movimentations' && action_name == 'new' %>">
-                  <%= link_to '<i class="icon-plus"></i>Novo Movimento'.html_safe, new_movimentation_path %>
+                <li class="<%= 'active' if controller_name == 'moviments' && action_name == 'new' %>">
+                  <%= link_to '<i class="icon-plus"></i>Novo Movimento'.html_safe, new_moviment_path %>
                 </li>
                 <li class="<%= 'active' if controller_name == 'tags' %>">
                   <%= link_to '<i class="icon-tags"></i>Tags'.html_safe, tags_path %>

@@ -1,16 +1,16 @@
 <%= show_for @object do |tag| %>
   <%= tag.attribute :name %>
-  <%= tag.attribute :movimentations_sum do %>
-    <%= currency @object.movimentations_sum  %>
+  <%= tag.attribute :moviments_sum do %>
+    <%= currency @object.moviments_sum  %>
   <% end %>
   <%= tag.attribute :created_at %>
   <%= tag.attribute :updated_at %>
-  <%= tag.attribute :movimentations_count %>
-  <%= tag.attribute :movimentations do %>
+  <%= tag.attribute :moviments_count %>
+  <%= tag.attribute :moviments do %>
     <table class="table table-striped table-bordered">
-      <%= render 'movimentations/header' %>
-      <%= render @movimentations %>
+      <%= render 'moviments/header' %>
+      <%= render @moviments %>
     </table>
-    <%= paginate @movimentations, :url => proc { |page| paginate_tag_path(@object.id, :page => page) } %>
+    <%= paginate @moviments, :url => proc { |page| paginate_tag_path(@object.id, :page => page) } %>
   <% end %>
 <% end %>

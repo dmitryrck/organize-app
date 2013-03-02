@@ -6,7 +6,7 @@ describe ApplicationHelper do
   end
 
   it 'should return period_url' do
-    period_url(period).should eq '/movimentations?year=2012&month=02'
+    period_url(period).should eq '/moviments?year=2012&month=02'
   end
 
   context 'tags link' do

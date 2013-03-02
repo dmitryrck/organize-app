@@ -1,0 +1,13 @@
+<%= show_for @object do |moviment| %>
+  <%= moviment.attribute :title %>
+  <%= moviment.attribute :observation %>
+  <%= moviment.attribute :value do %>
+    <%= currency @object.value_formatted %>
+  <% end %>
+  <%= moviment.attribute :tag do %>
+    <%= link_to @object.tag, @object.tag if @object.tag %>
+  <% end %>
+  <%= moviment.attribute :purchased_at %>
+  <%= moviment.attribute :created_at %>
+  <%= moviment.attribute :updated_at %>
+<% end %>

@@ -1,4 +1,4 @@
-class Movimentation < ActiveRecord::Base
+class Moviment < ActiveRecord::Base
   include OrganizeApp::Locale
 
   validates :title, :value, :purchased_at, :presence => true

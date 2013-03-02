@@ -36,15 +36,15 @@ describe TagsController do
     expect(page).to have_content 'tag#2'
   end
 
-  context 'with movimentation' do
+  context 'with moviment' do
     it 'show sum and count' do
       tag = Tag.create! :name => 'tag#1'
-      Movimentation.create! :title => 'Movimentation#1',
+      Moviment.create! :title => 'Moviment#1',
         :kind => true,
         :value => 10,
         :tag_id => tag.id,
         :purchased_at => Date.current
-      Movimentation.create! :title => 'Movimentation#2',
+      Moviment.create! :title => 'Moviment#2',
         :kind => false,
         :value => 8,
         :tag_id => tag.id,
@@ -59,11 +59,11 @@ describe TagsController do
       expect(page).to have_content 'Quantidade de movimentações: 2'
     end
 
-    it 'show movimentations' do
+    it 'show moviments' do
       tag = Tag.create! :name => 'tag#1'
 
       12.times do |number|
-        Movimentation.create! :title => "Movimentation##{number}",
+        Moviment.create! :title => "Moviment##{number}",
           :value => (2.5 + number),
           :tag_id => tag.id,
           :purchased_at => Date.current
@@ -74,12 +74,12 @@ describe TagsController do
       click_link 'Tags'
       click_link 'tag#1'
 
-      expect(page).to have_content 'Movimentation#11'
+      expect(page).to have_content 'Moviment#11'
       expect(page).to have_content 'R$ 8,50'
 
       click_link 'Antigos'
 
-      expect(page).to have_content 'Movimentation#0'
+      expect(page).to have_content 'Moviment#0'
       expect(page).to have_content 'R$ 2,50'
 
       # FIXME
