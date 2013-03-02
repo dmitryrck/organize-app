@@ -7,14 +7,17 @@ gem 'devise', :git => 'git://github.com/plataformatec/devise.git', :branch => 'r
 gem 'simple_form'
 gem 'show_for'
 gem 'jquery-rails'
-gem 'puma'
-gem 'foreman'
 gem 'kaminari'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.beta1'
   gem 'coffee-rails', '~> 4.0.0.beta1'
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :production, :development do
+  gem 'puma'
+  gem 'foreman'
 end
 
 group :production do
