@@ -1,4 +1,7 @@
 class ChangeMovimentationsKindToBoolean < ActiveRecord::Migration
+  class Movimentation < ActiveRecord::Base
+  end
+
   def change
     remove_column :movimentations, :kind
 
