@@ -10,6 +10,7 @@
  *
  *= require bootstrap
  *= require bootstrap-responsive
+ *= require font-awesome
  *= require jquery-ui-1.9.20-bootstrap
  *= require_self
  */
