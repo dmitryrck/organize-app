@@ -56,10 +56,11 @@ feature MovimentsController do
   it 'edit' do
     Moviment.create :title => 'Moviment#1',
       :value => 10,
-      :purchased_at => Date.yesterday
+      :purchased_at => Date.current
 
     visit '/'
 
+    page.driver.render 'page.png', :full => true
     click_link 'Moviment#1'
     click_link 'Editar'
 
