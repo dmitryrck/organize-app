@@ -4,6 +4,7 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.0.beta1'
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git', :branch => 'rails4'
+gem 'devise-i18n'
 gem 'simple_form'
 gem 'show_for'
 gem 'jquery-rails'
