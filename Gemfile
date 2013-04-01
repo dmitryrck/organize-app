@@ -8,8 +8,6 @@ gem 'devise-i18n'
 gem 'simple_form'
 gem 'show_for'
 gem 'jquery-rails'
-gem 'puma'
-gem 'foreman'
 gem 'kaminari'
 
 group :assets do
@@ -20,6 +18,11 @@ end
 
 group :production do
   gem 'pg'
+end
+
+group :production, :development do
+  gem 'puma'
+  gem 'foreman'
 end
 
 group :development do
