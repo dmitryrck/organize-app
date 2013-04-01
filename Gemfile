@@ -39,5 +39,3 @@ group :test do
   gem 'poltergeist'
   gem 'database_cleaner', :git => 'git://github.com/bmabey/database_cleaner.git'
 end
-
-gem 'jquery-rails'
