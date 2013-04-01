@@ -7,10 +7,10 @@ module Helpers
 
     visit root_path
 
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'E-mail', :with => user.email
+    fill_in 'Senha', :with => user.password
 
-    click_button 'Sign in'
+    click_button 'Logar'
 
     expect(page).to have_content 'user@mail.com'
   end

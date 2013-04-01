@@ -1,0 +1,12 @@
+pt-BR:
+  simple_form:
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+
+    labels:
+      user:
+        email: E-mail
+        password: Senha
+        remember_me: Lembrar
