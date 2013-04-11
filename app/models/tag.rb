@@ -1,7 +1,7 @@
 class Tag < ActiveRecord::Base
   include OrganizeApp::Locale
 
-  has_many :moviments
+  has_many :moviments, :dependent => :restrict_with_exception
 
   validates :name, :presence => true
 

@@ -15,4 +15,12 @@ describe Tag do
     subject.name = nil
     subject.should_not be_valid
   end
+
+  it 'should not be destroyable if has movimentations' do
+    Moviment.create :title => 'To tag#1',
+      :value => 10.0,
+      :tag => subject
+
+    expect { subject.destroy }.to raise_error ActiveRecord::DeleteRestrictionError
+  end
 end
