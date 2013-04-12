@@ -67,7 +67,7 @@ feature MovimentsController do
 
     fill_in 'Título', :with => 'Moviment#2'
     fill_in 'Valor', :with => '11,0'
-    fill_in 'Data', :with => '31/12/2011'
+    fill_in 'Data do pagamento', :with => '31/12/2011'
 
     click_button 'Atualizar'
 

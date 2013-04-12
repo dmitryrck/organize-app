@@ -37,6 +37,16 @@ class Moviment < ActiveRecord::Base
     super
   end
 
+  def expires_in=(date)
+    if date.present? && date.is_a?(String)
+      day, month, year = date.split('/').map(&:to_i)
+
+      date = Date.new(year, month, day)
+    end
+
+    super
+  end
+
   def purchased_at=(date)
     if date.present? && date.is_a?(String)
       day, month, year = date.split('/').map(&:to_i)

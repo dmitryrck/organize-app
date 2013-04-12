@@ -13,6 +13,6 @@ class MovimentsController < AdminController
 
   def object_params
     params.require(:moviment).permit(:title,
-      :purchased_at, :tag_id, :observation, :kind, :value)
+      :purchased_at, :expires_in, :tag_id, :observation, :kind, :value)
   end
 end

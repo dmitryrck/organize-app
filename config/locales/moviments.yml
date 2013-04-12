@@ -13,9 +13,8 @@ pt-BR:
         tag_id: Tag
         kind: Tipo
         value: Valor
-        value_localized: Valor
-        purchased_at: Data
-        purchased_at_localized: Data
+        expires_in: Data de vencimento
+        purchased_at: Data do pagamento
         created_at: Criado em
         updated_at: Atualizado em
         created_by: Criado por

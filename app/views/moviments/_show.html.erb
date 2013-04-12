@@ -7,6 +7,7 @@
   <%= moviment.attribute :tag do %>
     <%= link_to @object.tag, @object.tag if @object.tag %>
   <% end %>
+  <%= moviment.attribute :expires_in %>
   <%= moviment.attribute :purchased_at %>
   <%= moviment.attribute :created_at %>
   <%= moviment.attribute :updated_at %>
