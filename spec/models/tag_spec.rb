@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Tag do
   subject do
-    described_class.new :name => 'tag#1'
+    Tag.new :name => 'tag#1'
   end
 
   it { should be_valid }
@@ -13,7 +13,7 @@ describe Tag do
 
   it 'should not be valid without name' do
     subject.name = nil
-    subject.should_not be_valid
+    expect(subject).to_not be_valid
   end
 
   it 'should not be destroyable if has movimentations' do

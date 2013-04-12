@@ -15,38 +15,38 @@ describe Moviment do
 
   it 'should not be valid without title' do
     subject.title = nil
-    subject.should_not be_valid
+    expect(subject).to_not be_valid
   end
 
   it 'should not be valid without value' do
     subject.value = nil
-    subject.should_not be_valid
+    expect(subject).to_not be_valid
   end
 
   it 'should not be valid without purchased_at' do
     subject.purchased_at = nil
-    subject.should_not be_valid
+    expect(subject).to_not be_valid
   end
 
   it 'should initialize with date current' do
-    described_class.new.purchased_at.should eq Date.current
+    expect(Moviment.new.purchased_at).to eq Date.current
   end
 
   context 'validate value' do
     it 'should not be valid with negative value' do
       subject.value = -10
-      subject.should_not be_valid
+      expect(subject).to_not be_valid
     end
 
     it 'should be valid with positive value' do
       subject.value = 10
-      subject.should be_valid
+      expect(subject).to be_valid
     end
   end
 
   context 'value localized' do
     it 'accept localized value' do
-      lambda { subject.value = '12.345,67' }.should change { subject.value }.to(12_345.67)
+      expect { subject.value = '12.345,67' }.to change { subject.value }.to(12_345.67)
     end
   end
 
@@ -70,11 +70,11 @@ describe Moviment do
 
   context 'purchased_at localized' do
     it 'accept string localized date' do
-      lambda { subject.purchased_at = '31/12/2012' }.should change { subject.purchased_at }.to(Date.new(2012, 12, 31))
+      expect { subject.purchased_at = '31/12/2012' }.to change { subject.purchased_at }.to(Date.new(2012, 12, 31))
     end
 
     it 'accept date values' do
-      lambda { subject.purchased_at = Date.new(2013, 2, 24) }.should change { subject.purchased_at }.to(Date.new(2013, 2, 24))
+      expect { subject.purchased_at = Date.new(2013, 2, 24) }.to change { subject.purchased_at }.to(Date.new(2013, 2, 24))
     end
   end
 end
