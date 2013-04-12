@@ -18,3 +18,5 @@ pt-BR:
         purchased_at_localized: Data
         created_at: Criado em
         updated_at: Atualizado em
+        created_by: Criado por
+        updated_by: Atualizado por

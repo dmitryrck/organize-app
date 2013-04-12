@@ -5,6 +5,8 @@ class Moviment < ActiveRecord::Base
   validates :value, :numericality => { :greater_than_or_equal_to => 0 }
 
   belongs_to :tag, :counter_cache => true
+  belongs_to :created_by, :class_name => 'User'
+  belongs_to :updated_by, :class_name => 'User'
 
   after_initialize :set_current_date
 

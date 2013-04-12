@@ -19,6 +19,7 @@ describe TagsController do
     click_button 'Criar'
 
     expect(page).to have_content 'tag#1'
+    expect(page).to have_content 'Criado por: user@mail.com'
   end
 
   it 'edit' do
@@ -34,6 +35,7 @@ describe TagsController do
     click_button 'Atualizar'
 
     expect(page).to have_content 'tag#2'
+    expect(page).to have_content 'Atualizado por: user@mail.com'
   end
 
   context 'with moviment' do
@@ -91,6 +93,7 @@ describe TagsController do
     Tag.create :name => 'tag#1'
 
     visit '/'
+
     click_link 'Tags'
     click_link 'tag#1'
     click_link 'Apagar'

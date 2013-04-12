@@ -11,7 +11,9 @@ class AdminController < ApplicationController
 
   def create
     @object = object_class.new object_params
+    @object.created_by_id = current_user.id
     @object.save
+
     respond_with @object
   end
 
@@ -25,13 +27,17 @@ class AdminController < ApplicationController
 
   def update
     @object = object_class.find params[:id]
-    @object.update_attributes object_params
+    @object.attributes = object_params
+    @object.updated_by_id = current_user.id
+    @object.save
+
     respond_with @object
   end
 
   def destroy
     @object = object_class.find params[:id]
     @object.destroy
+
     respond_with @object
   end
 

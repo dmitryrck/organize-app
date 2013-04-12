@@ -19,6 +19,7 @@ feature MovimentsController do
     expect(page).to have_content 'Moviment#1'
     expect(page).to have_content 'R$ 10,00'
     expect(page).to have_content I18n.l(Date.current)
+    expect(page).to have_content 'Criado por: user@mail.com'
   end
 
   context 'paginate' do
@@ -73,6 +74,7 @@ feature MovimentsController do
     expect(page).to have_content 'Moviment#2'
     expect(page).to have_content 'R$ 11,00'
     expect(page).to have_content '31/12/2011'
+    expect(page).to have_content 'Atualizado por: user@mail.com'
   end
 
   it 'delete' do
