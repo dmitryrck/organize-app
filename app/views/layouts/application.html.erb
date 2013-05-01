@@ -6,18 +6,18 @@
     <%= csrf_meta_tag %>
   </head>
   <body>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/">OrganizeApp</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <% if user_signed_in? %>
+    <% if user_signed_in? %>
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/">OrganizeApp</a>
+            <div class="nav-collapse">
+              <ul class="nav">
                 <li class="<%= 'active' if controller_name == 'moviments' && action_name != 'new' %>">
                   <%= link_to '<i class="icon-money"></i>Movimentos'.html_safe, root_path %>
                 </li>
@@ -30,18 +30,16 @@
                 <li class="<%= 'active' if controller_name == 'report' %>">
                   <%= link_to '<i class="icon-th"></i>Relatório'.html_safe, report_path %>
                 </li>
-              <% end %>
-            </ul>
-            <ul class="nav pull-right">
-              <% if user_signed_in? %>
+              </ul>
+              <ul class="nav pull-right">
                 <li><a><%= current_user %></a></li>
                 <li><%= link_to t('actions.logout'), destroy_user_session_path, :method => :delete %></li>
-              <% end %>
-            </ul>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+  <% end %>
     <div id="container" class="container" data-env="<%= Rails.env %>">
       <% flash.each do |type, value| %>
         <div class="alert alert-<%= type.to_s %>">
