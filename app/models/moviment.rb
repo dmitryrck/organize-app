@@ -21,6 +21,14 @@ class Moviment < ActiveRecord::Base
   scope :expenses, lambda { where(:kind => false) }
   scope :revenues, lambda { where(:kind => true) }
 
+  def expense?
+    !kind?
+  end
+
+  def revenue?
+    kind?
+  end
+
   def value_formatted
     if kind?
       value

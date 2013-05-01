@@ -77,4 +77,14 @@ describe Moviment do
       expect { subject.purchased_at = Date.new(2013, 2, 24) }.to change { subject.purchased_at }.to(Date.new(2013, 2, 24))
     end
   end
+
+  it 'should be expense if kind is false' do
+    subject.kind = false
+    expect(subject).to be_expense
+  end
+
+  it 'should be revenue if kind is true' do
+    subject.kind = true
+    expect(subject).to be_revenue
+  end
 end
