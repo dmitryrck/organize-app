@@ -1,0 +1,10 @@
+<dl class="dl-horizontal">
+  <dt>Despesas</dt>
+  <dd><%= currency -@expenses_sum %></dd>
+
+  <dt>Receitas</dt>
+  <dd><%= currency @revenues_sum %></dd>
+
+  <dt>Saldo</dt>
+  <dd><%= currency (@revenues_sum - @expenses_sum) %></dd>
+</dl>

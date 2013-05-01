@@ -27,6 +27,9 @@
                 <li class="<%= 'active' if controller_name == 'tags' %>">
                   <%= link_to '<i class="icon-tags"></i>Tags'.html_safe, tags_path %>
                 </li>
+                <li class="<%= 'active' if controller_name == 'report' %>">
+                  <%= link_to '<i class="icon-th"></i>Relatório'.html_safe, report_path %>
+                </li>
               <% end %>
             </ul>
             <ul class="nav pull-right">

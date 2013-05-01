@@ -1,9 +1,10 @@
 OrganizeApp::Application.routes.draw do
   devise_for :users
 
-  get 'tags/:id/page/:page' => 'tags#show', :as => :paginate_tag
   resources :moviments
+  get 'tags/:id/page/:page' => 'tags#show', :as => :paginate_tag
   resources :tags
+  get 'report' => 'report#show', :as => :report
 
   root :to => 'moviments#index'
 
