@@ -61,7 +61,6 @@ feature MovimentsController do
 
     visit '/'
 
-    page.driver.render 'page.png', :full => true
     click_link 'Moviment#1'
     click_link 'Editar'
 
