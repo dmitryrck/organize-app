@@ -2,8 +2,9 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-# Assets should be precompiled for production (so we don't need the gems loaded then)
-Bundler.require(*Rails.groups(assets: %w(development test)))
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(:default, Rails.env)
 
 require File.expand_path('../../lib/period', __FILE__)
 require File.expand_path('../../lib/locale', __FILE__)
@@ -23,7 +24,8 @@ module OrganizeApp
     # config.i18n.default_locale = :de
     config.i18n.default_locale = 'pt-BR'
 
-    config.assets.precompile += ['fontawesome-webfont.eot',
+    config.assets.precompile += [
+      'fontawesome-webfont.eot',
       'fontawesome-webfont.svg',
       'fontawesome-webfont.ttf',
       'fontawesome-webfont.woff',
