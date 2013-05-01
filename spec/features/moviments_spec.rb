@@ -22,16 +22,17 @@ feature MovimentsController do
     expect(page).to have_content 'Criado por: user@mail.com'
   end
 
-  context 'paginate' do
+  context 'paginate and summary' do
     before do
       Moviment.create :title => 'Moviment#1',
         :value => 10,
         :purchased_at => Date.current
       Moviment.create :title => 'Moviment#2',
-        :value => 10,
+        :value => 9,
         :purchased_at => (Date.current - 1.month)
       Moviment.create :title => 'Moviment#3',
-        :value => 10,
+        :kind => false,
+        :value => 8,
         :purchased_at => (Date.current + 1.month)
 
       visit '/'
@@ -39,19 +40,27 @@ feature MovimentsController do
 
     scenario 'show by default current month' do
       expect(page).to have_content 'Moviment#1'
-      page.driver.render 'page.png', :full => true
+
+      expect(page).to have_content 'Despesas R$ 0,00'
+      expect(page).to have_content 'Receitas R$ 10,00'
     end
 
     scenario 'show by default current month' do
       click_link 'Antigos'
 
       expect(page).to have_content 'Moviment#2'
+
+      expect(page).to have_content 'Despesas R$ 0,00'
+      expect(page).to have_content 'Receitas R$ 9,00'
     end
 
     scenario 'show by default current month' do
       click_link 'Novos'
 
       expect(page).to have_content 'Moviment#3'
+
+      expect(page).to have_content 'Despesas -R$ 8,00'
+      expect(page).to have_content 'Receitas R$ 0,00'
     end
   end
 
