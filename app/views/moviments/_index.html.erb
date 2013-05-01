@@ -9,8 +9,13 @@
 </ul>
 
 <table class="table table-striped table-bordered">
-  <%= render 'header' %>
-  <%= render @objects %>
+  <thead>
+    <%= render 'header' %>
+  </thead>
+
+  <tbody>
+    <%= render @objects %>
+  </tbody>
 </table>
 
 <dl class="dl-horizontal">

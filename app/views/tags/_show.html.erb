@@ -10,9 +10,15 @@
   <%= tag.attribute :moviments_count %>
   <%= tag.attribute :moviments do %>
     <table class="table table-striped table-bordered">
-      <%= render 'moviments/header' %>
-      <%= render @moviments %>
+      <thead>
+        <%= render 'moviments/header' %>
+      </thead>
+
+      <tbody>
+        <%= render @moviments %>
+      </tbody>
     </table>
+
     <%= paginate @moviments, :url => proc { |page| paginate_tag_path(@object.id, :page => page) } %>
   <% end %>
 <% end %>
