@@ -37,24 +37,25 @@ feature MovimentsController do
       visit '/'
     end
 
-    it 'show by default current month' do
+    scenario 'show by default current month' do
       expect(page).to have_content 'Moviment#1'
+      page.driver.render 'page.png', :full => true
     end
 
-    it 'show by default current month' do
+    scenario 'show by default current month' do
       click_link 'Antigos'
 
       expect(page).to have_content 'Moviment#2'
     end
 
-    it 'show by default current month' do
+    scenario 'show by default current month' do
       click_link 'Novos'
 
       expect(page).to have_content 'Moviment#3'
     end
   end
 
-  it 'edit' do
+  scenario 'edit' do
     Moviment.create :title => 'Moviment#1',
       :value => 10,
       :purchased_at => Date.current
@@ -76,7 +77,7 @@ feature MovimentsController do
     expect(page).to have_content 'Atualizado por: user@mail.com'
   end
 
-  it 'delete' do
+  scenario 'delete' do
     Moviment.create :title => 'Moviment#1',
       :value => 10
 
@@ -89,7 +90,7 @@ feature MovimentsController do
     expect(page).to_not have_content 'R$ 10,00'
   end
 
-  it 'show title' do
+  scenario 'show title' do
     visit '/moviments?year=2012&month=10'
 
     expect(page).to have_content 'Outubro/2012'
