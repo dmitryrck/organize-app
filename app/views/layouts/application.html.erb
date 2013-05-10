@@ -30,6 +30,10 @@
                 <li class="<%= 'active' if controller_name == 'report' %>">
                   <%= link_to '<i class="icon-th"></i>Relatório'.html_safe, report_path %>
                 </li>
+                <%= form_for moviments_path, :method => :get, :html => { :class => 'navbar-form pull-left' } do |f| %>
+                  <%= f.text_field :term, :value => params[:term], :name => :term, :class => :span2 %>
+                  <button type="submit" class="btn">Pesquisar</button>
+                <% end %>
               </ul>
               <ul class="nav pull-right">
                 <li><a><%= current_user %></a></li>

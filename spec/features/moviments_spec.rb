@@ -22,6 +22,19 @@ feature MovimentsController do
     expect(page).to have_content 'Criado por: user@mail.com'
   end
 
+  scenario 'search' do
+    Moviment.create! :title => 'First', :value => 10
+    Moviment.create! :title => 'Secondary', :value => 9
+
+    click_link 'Movimentos'
+
+    fill_in '_moviments_term', :with => 'First'
+    click_button 'Pesquisar'
+
+    expect(page).to have_content 'First'
+    expect(page).to_not have_content 'Secondary'
+  end
+
   context 'paginate and summary' do
     before do
       Moviment.create :title => 'Moviment#1',

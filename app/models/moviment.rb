@@ -18,6 +18,10 @@ class Moviment < ActiveRecord::Base
     where('purchased_at >= ? and purchased_at <= ?', time.beginning_of_month, time.end_of_month)
   }
 
+  scope :search, lambda { |term|
+    where("title @@ ?", term)
+  }
+
   scope :expenses, lambda { where(:kind => false) }
   scope :revenues, lambda { where(:kind => true) }
 

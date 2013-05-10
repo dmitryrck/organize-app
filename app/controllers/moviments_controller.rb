@@ -1,12 +1,16 @@
 class MovimentsController < AdminController
   def index
-    if params[:year].present? && params[:month].present?
-      @period = Period.new(params[:year], params[:month])
+    if params[:term].present?
+      @objects = Moviment.search(params[:term])
     else
-      @period = Period.new(Date.current.year, Date.current.month)
-    end
+      if params[:year].present? && params[:month].present?
+        @period = Period.new(params[:year], params[:month])
+      else
+        @period = Period.new(Date.current.year, Date.current.month)
+      end
 
-    @objects = Moviment.by_period(@period)
+      @objects = Moviment.by_period(@period)
+    end
   end
 
   private
