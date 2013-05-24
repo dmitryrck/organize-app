@@ -9,15 +9,12 @@ gem 'simple_form'
 gem 'show_for'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'pg'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.beta1'
   gem 'coffee-rails', '~> 4.0.0.beta1'
   gem 'uglifier', '>= 1.0.3'
-end
-
-group :production do
-  gem 'pg'
 end
 
 group :production, :development do
@@ -31,7 +28,6 @@ end
 
 group :development, :test do
   gem 'pry'
-  gem 'sqlite3'
   gem 'rspec-rails'
 end
 
