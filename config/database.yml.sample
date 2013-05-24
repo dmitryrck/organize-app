@@ -17,7 +17,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: organize_app_text
+  database: organize_app_test
   pool: 5
   username: postgres
   password:
